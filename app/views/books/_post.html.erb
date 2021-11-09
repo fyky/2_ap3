@@ -1,0 +1,11 @@
+   <%= form_with model:book, local:true do |f| %>
+  Title<br>
+    <%= f.text_field :title %><br>
+  Opinion<br>
+    <%= f.text_area :body %><br>
+    <% if f.object.new_record? %>
+      <%= f.submit "Create Book" %>
+    <% else %>
+      <%= f.submit "Update Book" %>
+    <% end %>
+  <% end %>
