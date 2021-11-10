@@ -30,6 +30,23 @@
               <%= link_to book_path(@book), method: :delete do %>
               Destroy</td>
               <% end %>
+            <% else %>
+            <td>
+              <% if current_user.already_favorited?(@book) %>
+                <%= link_to book_favorites_path(@book), method: :delete do %>
+                  <i class="fas fa-heart"></i>
+                  <%= @book.favorites.count %>
+                <% end %>
+              <% else %>
+                <%= link_to book_favorites_path(@book), method: :post do %>
+                  <i class="far fa-heart"></i>
+                  <%= @book.favorites.count %>
+                <% end %>
+              <% end %>
+            </td>
+            <td>
+              
+            </td>
             <% end %>
           </tr>
         </table>
